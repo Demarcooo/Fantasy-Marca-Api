@@ -6,7 +6,7 @@ puppeteer.use(StealthPlugin())
 
 const run = async () => {
 
-  const id = '48683'
+  const id = '52375'
 
   const browser = await puppeteer.launch({ headless: false }) // Abre navegador visible
   const page = await browser.newPage()
@@ -41,18 +41,24 @@ const run = async () => {
   const playerData = await page.evaluate(() => {
     const profileHeader = document.querySelector('.player-profile-header');
 
-    if (!profileHeader) {
-      return { name: 'Header no encontrado', price: 'Header no encontrado' };
-    }
-
     const name = profileHeader.querySelector('.name')?.textContent.trim() || 'Nombre no encontrado';
     const surname = profileHeader.querySelector('.surname')?.textContent.trim() || 'Apellido no encontrado';
-    const price = profileHeader.querySelector('.value')?.textContent.trim() || 'Precio no encontrado';
 
-    return { name, surname, price };
+    return { name, surname };
+  });
+
+  const playerStats = await page.evaluate(() => {
+    const profileHeader = document.querySelector('.player-stats-wrapper');
+    const subHeader = profileHeader.querySelector('.item');
+
+    const price = subHeader.querySelector('.value')?.textContent.trim() || 'Nombre no encontrado';
+    // const pts = subHeader.querySelector('.value')?.textContent.trim() || 'Apellido no encontrado';
+
+    return { price };
   });
 
   console.log('Datos del Jugador:', playerData)
+  console.log('Stats del Jugador:', playerStats)
 
   // Cierra el navegador
   await browser.close()
