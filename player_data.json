@@ -1,0 +1,34 @@
+{
+  "id": "52375",
+  "name": "Lamine",
+  "surname": "Yamal",
+  "team": null,
+  "position": null,
+  "stats": [
+    {
+      "label": "Valor",
+      "value": "82.880.000"
+    },
+    {
+      "label": "Puntos",
+      "value": "178"
+    },
+    {
+      "label": "Media",
+      "value": "6,4"
+    },
+    {
+      "label": "Partidos",
+      "value": "28"
+    },
+    {
+      "label": "Goles",
+      "value": "6"
+    },
+    {
+      "label": "Tarjetas",
+      "value": "3"
+    }
+  ],
+  "extractedAt": "2025-04-15T08:55:50.671Z"
+}
